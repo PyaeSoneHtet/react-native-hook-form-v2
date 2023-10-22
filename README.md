@@ -47,7 +47,7 @@ export default function Home() {
           name={'password'}
           label="Password"
           placeholder="password"
-          keyboardType="email-address"
+          keyboardType="default"
           rules={{required: 'Password is required!'}}
           onChangeText={(value: string) =>
             methods.setValue('password', value.replace(/[a-z,A-Z]/g, ''), {

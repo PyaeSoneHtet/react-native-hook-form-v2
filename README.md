@@ -17,8 +17,9 @@ yarn install react-native-hook-form-v2
 
 ```js
 import React from 'react';
-import {Button, View} from 'react-native';
-import {useForm, FormProvider, SubmitHandler} from 'react-hook-form';
+import { Button, View } from 'react-native';
+import { useForm, FormProvider } from 'react-hook-form';
+import { type SubmitHandler } from 'react-hook-form';
 import RNTextInput from 'react-native-hook-form-v2';
 
 type FormValues = {

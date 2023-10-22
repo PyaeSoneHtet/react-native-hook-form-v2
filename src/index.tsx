@@ -6,6 +6,7 @@ import { type UseControllerProps } from 'react-hook-form';
 import {
   type StyleProp,
   type ViewStyle,
+  type TextStyle,
   type TextInputProps as RNTextInputProps,
 } from 'react-native';
 
@@ -13,8 +14,8 @@ interface TextInputProps extends RNTextInputProps, UseControllerProps {
   label: string;
   defaultValue?: string;
   containerStyle?: StyleProp<ViewStyle>;
-  labelTextStyle?: StyleProp<ViewStyle>;
-  errorTextStyle?: StyleProp<ViewStyle>;
+  labelTextStyle?: StyleProp<TextStyle>;
+  errorTextStyle?: StyleProp<TextStyle>;
 }
 
 export default function RNTextInput(props: TextInputProps) {
@@ -57,11 +58,11 @@ const ControlledInput = (props: TextInputProps) => {
         value={field.value}
         {...inputProps}
       />
-      <View style={[styles.errorContainer, errorTextStyle]}>
-        {hasError && (
-          <Text style={styles.error}>{formState?.errors[name]?.message}</Text>
-        )}
-      </View>
+      {hasError && (
+        <Text style={[styles.error, errorTextStyle]}>
+          {formState?.errors[name]?.message}
+        </Text>
+      )}
     </View>
   );
 };
@@ -78,7 +79,6 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 4,
   },
-  errorContainer: {},
   error: {
     color: 'red',
   },
